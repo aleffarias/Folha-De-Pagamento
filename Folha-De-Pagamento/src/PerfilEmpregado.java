@@ -5,10 +5,10 @@ public class PerfilEmpregado {
 	protected String endereco;
 	protected int tipo;
 	protected int metodoPagamento;
-	protected boolean sindicato;
+	protected int sindicato;
 	protected double salario = 0;
 	
-	//======================================= Get/Set=================================================
+	//======================================= Get/Set =================================================
 	
 	public int getNumeroEmpregado() {
 		return this.numeroEmpregado;
@@ -55,11 +55,11 @@ public class PerfilEmpregado {
 	}
 	
 	
-	public boolean getSindicato() {
+	public int getSindicato() {
 		return this.sindicato;
 	}
 	
-	public void setSindicato(boolean sindicato) {
+	public void setSindicato(int sindicato) {
 		this.sindicato = sindicato;
 	}
 	
