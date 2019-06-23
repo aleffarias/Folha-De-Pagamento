@@ -1,3 +1,4 @@
+package br.com.folhapagamento.empregado;
 
 public class PerfilEmpregado {
 	protected int numeroEmpregado;
@@ -6,7 +7,6 @@ public class PerfilEmpregado {
 	protected int tipo;
 	protected int metodoPagamento;
 	protected int sindicato;
-	protected double salario = 0;
 	
 	//======================================= Get/Set =================================================
 	
@@ -62,13 +62,5 @@ public class PerfilEmpregado {
 	public void setSindicato(int sindicato) {
 		this.sindicato = sindicato;
 	}
-	
-	public double getSalario() {
-		return this.salario;
-	}
-	
-	public void setSalario(double salario) {
-		this.salario = salario;
-	}	
 	
 }

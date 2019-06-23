@@ -1,5 +1,8 @@
+package br.com.folhapagamento;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import br.com.folhapagamento.empregado.PerfilEmpregado;
 
 public class Funcionalidades {
 	  Scanner input = new Scanner(System.in);

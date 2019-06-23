@@ -1,3 +1,5 @@
+package br.com.folhapagamento;
+
 import java.util.Scanner;
 
 public class Main {
