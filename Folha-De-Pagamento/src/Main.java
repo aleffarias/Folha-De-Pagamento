@@ -6,8 +6,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		int opcao;
 		input = new Scanner(System.in);
+		Funcionalidades funcionalidade = new Funcionalidades();
+		
+		int opcao;
 		
 		while (true) {
 			
@@ -16,13 +18,20 @@ public class Main {
 			opcao = Integer.parseInt(input.nextLine());
 			
 			switch(opcao) {
-			
+			case 1:
+				funcionalidade.addEmpregado();
+				break;
+				
+			case 2:
+				funcionalidade.removerEmpregado();
+				break;
+				
 			case 0:
 				System.exit(0);
 			
 			default:
 				System.out.println("\nErro: Opção Inválida.\n");
-			}
+			}			
 		}
 	}
 	
