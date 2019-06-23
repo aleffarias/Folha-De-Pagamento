@@ -1,4 +1,4 @@
-package br.com.folhapagamento;
+package folhapagamento;
 
 import java.util.Scanner;
 
