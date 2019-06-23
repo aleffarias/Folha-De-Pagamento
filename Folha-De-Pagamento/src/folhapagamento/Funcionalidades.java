@@ -1,43 +1,55 @@
-package br.com.folhapagamento;
+package folhapagamento;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import br.com.folhapagamento.empregado.PerfilEmpregado;
+import folhapagamento.empregado.Assalariado;
+import folhapagamento.empregado.Comissionado;
+import folhapagamento.empregado.Empregado;
+import folhapagamento.empregado.Horista;
 
 public class Funcionalidades {
 	  Scanner input = new Scanner(System.in);
 	  
-	  int numEmpregado = 1;
+	  static int numEmpregado = 1;
 	  
-	  public static ArrayList<PerfilEmpregado> todosEmpregados = new ArrayList<PerfilEmpregado>();
+	  public static ArrayList<Empregado> todosEmpregados = new ArrayList<Empregado>();
 	  
 	  public void addEmpregado() {
 		  System.out.println("\n**  ADICIONAR EMPREGADO  **\n");
 		  
-		  PerfilEmpregado empregado = new PerfilEmpregado();
-		  
-		  empregado.setNumeroEmpregado(numEmpregado);
-		  
 		  System.out.println("Digite o nome do empregado:");
-		  empregado.setNome(input.nextLine());
+		  String nome = input.nextLine();
 		  
 		  System.out.println("\nDigite o endereço do empregado:");
-		  empregado.setEndereco(input.nextLine());
+		  String endereco = input.nextLine();
 		  
 		  System.out.println("\nEscolha o tipo do empregado:\n(1) - Horista\n(2) - Assalariado\n(3) - Comissionado");
-		  empregado.setTipo(input.nextInt());
+		  int tipo = input.nextInt();
 		  
-		  
+		  if (tipo == 1) {
+			  Horista horista = new Horista();
+			  
+			  // numero funcionario
+			  
+		  } else if (tipo == 2) {
+			  Assalariado assalariado = new Assalariado();
+			  
+		  } else if (tipo == 3) {
+			  Comissionado comissionado = new Comissionado();
+			  
+		  } else {
+			  System.out.println("\nErro: Opção Inválida.\\n");
+		  }
 		  
 		  
 		  System.out.println("\nMétodo de pagamento:\n(1) - Cheque pelos correios\n(2) - Cheque em mãos\n(3) - Depósito em conta bancária");
-		  empregado.setMetodoPagamento(input.nextInt());
+		  int metodoPagamento = input.nextInt();
 		  
 		  System.out.println("\nPertence ao sindicato?\n(1) - Sim\n(0) - Não");
-		  empregado.setSindicato(input.nextInt());
+		  int sindicato = input.nextInt();
 		  
-		  todosEmpregados.add(empregado);
+		 // todosEmpregados.add();
 		  
 		// Teste
 		  System.out.print(todosEmpregados.get(0).getSindicato());
