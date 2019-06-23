@@ -25,6 +25,8 @@ public class Funcionalidades {
 		  empregado.setTipo(input.nextInt());
 		  
 		  
+		  
+		  
 		  System.out.println("\nMétodo de pagamento:\n(1) - Cheque pelos correios\n(2) - Cheque em mãos\n(3) - Depósito em conta bancária");
 		  empregado.setMetodoPagamento(input.nextInt());
 		  
@@ -52,9 +54,12 @@ public class Funcionalidades {
 		  for (int i=0; i < todosEmpregados.size(); i++) {
 				if (todosEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {
 					todosEmpregados.remove(i);
+					
+					System.out.println("\nEmpregado removido com sucesso!\n");	
+					return;
 				}
-			}
+			} 
 		  
-		  System.out.println("\nEmpregado removido com sucesso!\n");
+		  System.out.println("\nErro: Empregado não encontrado.\n");	
 	  }
 }
