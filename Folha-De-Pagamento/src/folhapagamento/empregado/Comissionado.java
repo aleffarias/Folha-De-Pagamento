@@ -6,6 +6,7 @@ public class Comissionado extends Empregado {
 	
 	private static Scanner input;
 	
+	
 	// Agenda Padrão
 	String agenda = "mensal";
 	int dia = 30;
