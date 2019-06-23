@@ -1,12 +1,33 @@
+import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
-		menu();
+	private static Scanner input;
 
+	public static void main(String[] args) {
+		
+		int opcao;
+		input = new Scanner(System.in);
+		
+		while (true) {
+			
+			menu();
+			
+			opcao = Integer.parseInt(input.nextLine());
+			
+			switch(opcao) {
+			
+			case 0:
+				System.exit(0);
+			
+			default:
+				System.out.println("\nErro: Opção Inválida.\n");
+			}
+		}
 	}
 	
 	public static void menu() {
+		System.out.println("===============================FOLHA DE PAGAMENTO=====================================");
 		System.out.println("\nEscolha uma opção:");
 		System.out.println("(1) - Adicionar Empregado");
 		System.out.println("(2) - Remover Empregado");
@@ -20,5 +41,4 @@ public class Main {
 		System.out.println("(10) - Criação de Novas Agendas de Pagamento");
 		System.out.println("(0) - Sair");
 	}
-
 }
