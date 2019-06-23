@@ -1,6 +1,6 @@
-package br.com.folhapagamento.empregado;
+package folhapagamento.empregado;
 
-public class PerfilEmpregado {
+public class Empregado {
 	protected int numeroEmpregado;
 	protected String nome;
 	protected String endereco;
