@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Assalariado extends Empregado {
 	
+	Scanner input = new Scanner(System.in);
+	
 	// Construtor 
 	public Assalariado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento,
 			int sindicato) {
 		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, sindicato);
 	}
-
-	Scanner input = new Scanner(System.in);
 	
 	// Agenda Padrão
 	private String agenda = "mensal";
@@ -23,8 +23,8 @@ public class Assalariado extends Empregado {
 	@Override
 	public void salario() {
 		System.out.print("\nInforme o salário fixo mensal:\nExemplo: 1500 - 3000.56\nR$ ");
-		double aux = input.nextDouble();
-		setSalario(aux);
+		double salarioTemp = input.nextDouble();
+		setSalario(salarioTemp);
 		
 	}
 	
