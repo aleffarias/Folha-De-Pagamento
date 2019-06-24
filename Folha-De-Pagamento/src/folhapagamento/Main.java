@@ -9,7 +9,8 @@ public class Main {
 	public static void main(String[] args) {
 		
 		input = new Scanner(System.in);
-		Funcionalidades funcionalidade = new Funcionalidades();
+		
+		//Funcionalidades funcionalidade = new Funcionalidades();
 		
 		int opcao;
 		
@@ -21,11 +22,11 @@ public class Main {
 			
 			switch(opcao) {
 			case 1:
-				funcionalidade.addEmpregado();
+				Funcionalidades.addEmpregado();
 				break;
 				
 			case 2:
-				funcionalidade.removerEmpregado();
+			
 				break;
 				
 			case 0:
@@ -33,7 +34,9 @@ public class Main {
 			
 			default:
 				System.out.println("\nErro: Opção Inválida.\n");
-			}			
+			}
+			
+			//System.out.print(todosEmpregados.get(0).ge);
 		}
 	}
 	
