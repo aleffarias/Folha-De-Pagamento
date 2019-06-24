@@ -1,12 +1,24 @@
 package folhapagamento.empregado;
 
-public class Empregado {
+public abstract class Empregado {
 	protected int numeroEmpregado;
 	protected String nome;
 	protected String endereco;
 	protected int tipo;
 	protected int metodoPagamento;
 	protected int sindicato;
+	
+	// Construtor
+	public Empregado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento, int sindicato) {
+		this.numeroEmpregado = numeroEmpregado;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.tipo = tipo;
+		this.metodoPagamento = metodoPagamento;
+		this.sindicato = sindicato;
+	}
+	
+	public abstract void salario();
 	
 	//======================================= Get/Set =================================================
 	
