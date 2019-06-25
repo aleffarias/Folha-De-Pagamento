@@ -1,12 +1,12 @@
 package folhapagamento.empregado;
 
 public abstract class Empregado {
-	protected int numeroEmpregado;
-	protected String nome;
-	protected String endereco;
-	protected int tipo;
-	protected int metodoPagamento;
-	protected int sindicato;
+	private int numeroEmpregado;
+	private String nome;
+	private String endereco;
+	private int tipo;
+	private int metodoPagamento;
+	private int sindicato;
 	
 	// Construtor
 	public Empregado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento, int sindicato) {
