@@ -11,9 +11,6 @@ public class Horista extends Empregado {
 		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, sindicato);
 	}
 	
-	private int hora = 0;
-	private int horaExtra = 0;
-	
 	// Agenda Padrão
 	private String agenda = "mensal";
 	private int dia = 30;
@@ -31,8 +28,7 @@ public class Horista extends Empregado {
 		
 	}
 	
-	public void cartaoPonto() {
-		System.out.println("\n**  	LANÇAR CARTÃO DE PONTO  	**\n");		
+	public void cartaoPonto() {	
 		
 		System.out.println("\nHorário Entrada:\nDigite sem ':' Exemplo: 0703(07:03) - 1256(12:56)");
 		int cartaoPontoE = input.nextInt();
@@ -46,6 +42,7 @@ public class Horista extends Empregado {
 		System.out.println("\nCartão de Ponto registrado com sucesso!\n");		
 	}
 	
+	// Calcula o salário de acordo com o cartão ponto
 	public static double salarioHorista(double salarioHora, int entrada, int saida) {
 		double salario;
 		
@@ -78,22 +75,6 @@ public class Horista extends Empregado {
 	}
 	
 	//======================================= Get/Set =================================================
-	
-	public int getHora() {
-		return hora;
-	}
-
-	public void setHora(int hora) {
-		this.hora = hora;
-	}
-
-	public int getHoraExtra() {
-		return horaExtra;
-	}
-
-	public void setHoraExtra(int horaExtra) {
-		this.horaExtra = horaExtra;
-	}
 
 	public String getAgenda() {
 		return agenda;
