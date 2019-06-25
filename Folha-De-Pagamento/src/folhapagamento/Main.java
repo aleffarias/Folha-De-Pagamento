@@ -10,15 +10,14 @@ public class Main {
 		
 		input = new Scanner(System.in);
 		
-		//Funcionalidades funcionalidade = new Funcionalidades();
-		
 		int opcao;
 		
 		while (true) {
 			
 			menu();
 			
-			opcao = Integer.parseInt(input.nextLine());
+			opcao = input.nextInt();
+			input.nextLine();
 			
 			switch(opcao) {
 			case 1:
@@ -26,7 +25,7 @@ public class Main {
 				break;
 				
 			case 2:
-			
+				Funcionalidades.removerEmpregado();
 				break;
 				
 			case 0:
@@ -36,7 +35,6 @@ public class Main {
 				System.out.println("\nErro: Opção Inválida.\n");
 			}
 			
-			//System.out.print(todosEmpregados.get(0).ge);
 		}
 	}
 	
