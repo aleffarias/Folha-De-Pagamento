@@ -35,6 +35,14 @@ public class Main {
 			case 4:
 				Funcionalidades.lancarResultadoVenda();
 				break;
+			
+			case 5:
+				Funcionalidades.lancarTaxaServico();
+				break;
+			
+			case 6:	
+				
+				break;
 				
 			case 0:
 				System.exit(0);
