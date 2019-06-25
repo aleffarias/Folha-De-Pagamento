@@ -18,13 +18,13 @@ public class Assalariado extends Empregado {
 	
 	
 	// Salário
-	private double salario;
+	private double salarioAssalariado;
 	
 	@Override
 	public void salario() {
 		System.out.print("\nInforme o salário fixo mensal:\nExemplo: 1500 - 3000.56\nR$ ");
 		double salarioTemp = input.nextDouble();
-		setSalario(salarioTemp);
+		this.salarioAssalariado = salarioTemp;
 		
 	}
 	
@@ -47,11 +47,7 @@ public class Assalariado extends Empregado {
 	}
 
 	public double getSalario() {
-		return salario;
-	}
-	
-	public void setSalario(double salario) {
-		this.salario = salario;
+		return salarioAssalariado;
 	}
 
 }
