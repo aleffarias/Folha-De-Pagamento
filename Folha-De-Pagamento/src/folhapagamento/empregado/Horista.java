@@ -7,8 +7,8 @@ public class Horista extends Empregado {
 	Scanner input = new Scanner(System.in);
 	
 	// Construtor 
-	public Horista(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento, int sindicato) {
-		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, sindicato);
+	public Horista(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento, int isSindicato) {
+		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, isSindicato);
 	}
 	
 	// Agenda Padrão

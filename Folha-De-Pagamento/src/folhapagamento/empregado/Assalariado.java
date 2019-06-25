@@ -8,8 +8,8 @@ public class Assalariado extends Empregado {
 	
 	// Construtor 
 	public Assalariado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento,
-			int sindicato) {
-		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, sindicato);
+			int isSindicato) {
+		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, isSindicato);
 	}
 	
 	// Agenda Padrão

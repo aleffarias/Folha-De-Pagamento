@@ -8,8 +8,8 @@ public class Comissionado extends Empregado {
 	
 	// Construtor 
 	public Comissionado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento,
-			int sindicato) {
-		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, sindicato);
+			int isSindicato) {
+		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, isSindicato);
 	}
 	
 	// Implementar uma lista de resultados de vendas para consulta
