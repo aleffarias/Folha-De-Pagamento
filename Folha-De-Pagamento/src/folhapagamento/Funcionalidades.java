@@ -20,15 +20,19 @@ public class Funcionalidades {
 		  
 		  System.out.println("Digite o nome do empregado:");
 		  String nome = input.nextLine();
+		  input.nextLine();
 		  
 		  System.out.println("\nDigite o endereço do empregado:");
 		  String endereco = input.nextLine();
+		  input.nextLine();
 		  
 		  System.out.println("\nMétodo de pagamento:\n(1) - Cheque pelos correios\n(2) - Cheque em mãos\n(3) - Depósito em conta bancária");
 		  int metodoPagamento = input.nextInt();
+		  input.nextLine();
 		  
 		  System.out.println("\nPertence ao sindicato?\n(1) - Sim\n(0) - Não");
 		  int sindicato = input.nextInt();
+		  input.nextLine();
 		  
 		  System.out.println("\nEscolha o tipo do empregado:\n(1) - Horista\n(2) - Assalariado\n(3) - Comissionado");
 		  int tipo = input.nextInt();
@@ -53,14 +57,20 @@ public class Funcionalidades {
 		  } else {
 			  System.out.println("\nErro: Opção Inválida.\\n");
 		  }	
-		  		  
-		// Teste
-		System.out.print(todosEmpregados);
+		  
+		  teste();
 		  
 		 System.out.println("\nEmpregado cadastrado com sucesso!\n");
 		 numEmpregado++;
 		
 	  }
+	  
+	// Teste
+	 public static void teste() {
+		  Assalariado assalariado = (Assalariado) todosEmpregados.get(0);
+		  System.out.println(assalariado.getSalario());
+		  
+		  }
 	  
 	 /*public void removerEmpregado() {
 		  System.out.println("\n\t**  	REMOVER FUNCIONÁRIO  	**\n");
