@@ -10,4 +10,4 @@ deduzidos do seu salário."
 ## Configurações
 * **Versão do java:** 1.8.0_201
 * **IDE utilizada:** Eclipse 2018-12 (4.10.0)
-* **SO:** Ubuntu 18.04.1 Lt
+* **SO:** Ubuntu 18.04.1 Lts
