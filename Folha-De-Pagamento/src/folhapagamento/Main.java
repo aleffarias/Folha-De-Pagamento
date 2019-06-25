@@ -29,7 +29,11 @@ public class Main {
 				break;
 				
 			case 3:
-				Funcionalidades.cartaoPonto();
+				Funcionalidades.lancarCartaoPonto();
+				break;
+				
+			case 4:
+				Funcionalidades.lancarResultadoVenda();
 				break;
 				
 			case 0:
@@ -43,7 +47,7 @@ public class Main {
 	}
 	
 	public static void menu() {
-		System.out.println("===============================FOLHA DE PAGAMENTO=====================================");
+		System.out.println("=============================== FOLHA DE PAGAMENTO =====================================");
 		System.out.println("\nEscolha uma opção:");
 		System.out.println("(1) - Adicionar Empregado");
 		System.out.println("(2) - Remover Empregado");
