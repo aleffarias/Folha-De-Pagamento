@@ -6,16 +6,18 @@ public abstract class Empregado {
 	private String endereco;
 	private int tipo;
 	private int metodoPagamento;
-	private int sindicato;
+	private int isSindicato = 0;
+
+	Sindicato sindicato = new Sindicato();
 	
 	// Construtor
-	public Empregado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento, int sindicato) {
+	public Empregado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento, int isSindicato) {
 		this.numeroEmpregado = numeroEmpregado;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.tipo = tipo;
 		this.metodoPagamento = metodoPagamento;
-		this.sindicato = sindicato;
+		this.isSindicato = isSindicato;
 	}
 	
 	public abstract void salario();
@@ -67,11 +69,20 @@ public abstract class Empregado {
 	}
 	
 	
-	public int getSindicato() {
-		return this.sindicato;
+	public int getIsSindicato() {
+		return this.isSindicato;
 	}
 	
-	public void setSindicato(int sindicato) {
+	public void setIsSindicato(int isSindicato) {
+		this.isSindicato = isSindicato;
+	}
+	
+	
+	public Sindicato getSindicato() {
+		return sindicato;
+	}
+
+	public void setSindicato(Sindicato sindicato) {
 		this.sindicato = sindicato;
 	}
 	
