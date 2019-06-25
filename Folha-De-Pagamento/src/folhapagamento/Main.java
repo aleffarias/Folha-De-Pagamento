@@ -28,6 +28,10 @@ public class Main {
 				Funcionalidades.removerEmpregado();
 				break;
 				
+			case 3:
+				Funcionalidades.cartaoPonto();
+				break;
+				
 			case 0:
 				System.exit(0);
 			
