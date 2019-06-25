@@ -11,7 +11,7 @@ import folhapagamento.empregado.Horista;
 public class Funcionalidades {
 	  static Scanner input = new Scanner(System.in);
 	  
-	  static int numEmpregado = 01;
+	  private static int numEmpregado = 01;
 	  
 	  static ArrayList<Empregado> listaEmpregados = new ArrayList<Empregado>();
 	  
@@ -29,29 +29,35 @@ public class Funcionalidades {
 		  input.nextLine();
 		  
 		  System.out.println("\nPertence ao sindicato?\n(1) - Sim\n(0) - Não");
-		  int sindicato = input.nextInt();
+		  int isSindicato = input.nextInt();
 		  input.nextLine();
+		  
+		  if (isSindicato == 1) {
+			  System.out.print("Digite o valor da taxa sindical:\nR$ ");
+			  double taxaSidicato = input.nextDouble();
+			  input.nextLine();
+		  }
 		  
 		  System.out.println("\nEscolha o tipo do empregado:\n(1) - Horista\n(2) - Assalariado\n(3) - Comissionado");
 		  int tipo = input.nextInt();
 		  input.nextLine();
 		  
 		  if (tipo == 1) {
-			  Horista horista = new Horista(numEmpregado, nome, endereco, metodoPagamento, sindicato, tipo);
+			  Horista horista = new Horista(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo);
 			 			  
 			  horista.salario();
 			  
 			  listaEmpregados.add(horista);
 			  
 		  } else if (tipo == 2) {
-			  Assalariado assalariado = new Assalariado(numEmpregado, nome, endereco, metodoPagamento, sindicato, tipo);
+			  Assalariado assalariado = new Assalariado(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo);
 			  
 			  assalariado.salario();
 			  
 			  listaEmpregados.add(assalariado);
 			  
 		  } else if (tipo == 3) {
-			  Comissionado comissionado = new Comissionado(numEmpregado, nome, endereco, metodoPagamento, sindicato, tipo);
+			  Comissionado comissionado = new Comissionado(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo);
 			  
 			  comissionado.salario();
 			  
@@ -100,14 +106,19 @@ public class Funcionalidades {
 		 int nEmpTemp = input.nextInt();
 		 input.nextLine();
 		 
-		 if (listaEmpregados.get(nEmpTemp - 1) instanceof Horista) {
-			 Horista horista = (Horista) listaEmpregados.get(nEmpTemp - 1);
-			 
-			 horista.cartaoPonto();
-			 
-		 } else {
-			 System.out.println("\nErro: Empregado não é horista.\n");
+		 for (int i=0; i < listaEmpregados.size(); i++) {
+			 if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {		// Procura o empregado solicitado
+				 if (listaEmpregados.get(i) instanceof Horista) {				// Verifica se é horista
+					 Horista horista = (Horista) listaEmpregados.get(i);
+					 
+					 horista.cartaoPonto();
+					 
+				 } else {
+					 System.out.println("\nErro: Empregado não é horista.\n");
+				 }
+			 }
 		 }
+		 
 		 teste();
 	 }
 	 
@@ -117,13 +128,36 @@ public class Funcionalidades {
 		 int nEmpTemp = input.nextInt();
 		 input.nextLine();
 		 
-		 if (listaEmpregados.get(nEmpTemp - 1) instanceof Comissionado) {
-			 Comissionado comissionado = (Comissionado) listaEmpregados.get(nEmpTemp - 1);
-			 
-			 comissionado.resultadoVenda();
-			 
-		 } else {
-			 System.out.println("\nErro: Empregado não é comissionado.\n");
+		 for (int i=0; i < listaEmpregados.size(); i++) {
+			 if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {			// Procura o empregado solicitado
+				 if (listaEmpregados.get(i) instanceof Comissionado) {				// Verifica se é comissionado
+					 Comissionado comissionado = (Comissionado) listaEmpregados.get(i);
+					 
+					 comissionado.resultadoVenda();
+					 
+				 } else {
+					 System.out.println("\nErro: Empregado não é comissionado.\n");
+				 }
+			 }
 		 }
+	
 	 }
+	 
+	 public static void lancarTaxaServico() {
+		System.out.println("\n**  	LANÇAR TAXA DE SERVIÇO  	**\n");
+		System.out.println("Digite o número do Empregado:");
+		int nEmpTemp = input.nextInt();
+		input.nextLine();
+		
+		for (int i=0; i < listaEmpregados.size(); i++) {
+			 if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {			// Procura o empregado solicitado
+				 if (listaEmpregados.get(i).getIsSindicato() == 1) {				// Verifica se pertence ao sindicato
+							 
+					 
+				 } else {
+					 System.out.println("\nErro: Empregado não pertence ao sindicato.\n");
+				 }
+			 }
+		 }
+	}
 }
