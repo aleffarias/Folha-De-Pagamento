@@ -13,7 +13,7 @@ public class Funcionalidades {
 	  
 	  static int numEmpregado = 01;
 	  
-	  static ArrayList<Empregado> todosEmpregados = new ArrayList<Empregado>();
+	  static ArrayList<Empregado> listaEmpregados = new ArrayList<Empregado>();
 	  
 	  public static void addEmpregado() {
 		  System.out.println("\n**  ADICIONAR EMPREGADO  **\n");
@@ -41,21 +41,21 @@ public class Funcionalidades {
 			 			  
 			  horista.salario();
 			  
-			  todosEmpregados.add(horista);
+			  listaEmpregados.add(horista);
 			  
 		  } else if (tipo == 2) {
 			  Assalariado assalariado = new Assalariado(numEmpregado, nome, endereco, metodoPagamento, sindicato, tipo);
 			  
 			  assalariado.salario();
 			  
-			  todosEmpregados.add(assalariado);
+			  listaEmpregados.add(assalariado);
 			  
 		  } else if (tipo == 3) {
 			  Comissionado comissionado = new Comissionado(numEmpregado, nome, endereco, metodoPagamento, sindicato, tipo);
 			  
 			  comissionado.salario();
 			  
-			  todosEmpregados.add(comissionado);
+			  listaEmpregados.add(comissionado);
 			  
 		  } else {
 			  System.out.println("\nErro: Opção Inválida.\\n");
@@ -68,7 +68,7 @@ public class Funcionalidades {
 	  
 	// Teste
 	 public static void teste() {
-		  Horista horista = (Horista) todosEmpregados.get(0);
+		  Horista horista = (Horista) listaEmpregados.get(0);
 		  System.out.println(horista.getSalarioHorista());
 		  
 		  }
@@ -82,9 +82,9 @@ public class Funcionalidades {
 		  
 		  System.out.println("\nRemovendo empregado...");
 		  
-		  for (int i=0; i < todosEmpregados.size(); i++) {
-				if (todosEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {
-					todosEmpregados.remove(i);
+		  for (int i=0; i < listaEmpregados.size(); i++) {
+				if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {
+					listaEmpregados.remove(i);
 					
 					System.out.println("\nEmpregado removido com sucesso!\n");	
 					return;
@@ -94,13 +94,14 @@ public class Funcionalidades {
 		  System.out.println("\nErro: Empregado não encontrado.\n");	
 	  }
 	 
-	 public static void cartaoPonto() {
+	 public static void lancarCartaoPonto() {
+		 System.out.println("\n**  	LANÇAR CARTÃO DE PONTO  	**\n");	
 		 System.out.println("Digite o número do Empregado:");
 		 int nEmpTemp = input.nextInt();
 		 input.nextLine();
 		 
-		 if (todosEmpregados.get(nEmpTemp - 1) instanceof Horista) {
-			 Horista horista = (Horista) todosEmpregados.get(nEmpTemp - 1);
+		 if (listaEmpregados.get(nEmpTemp - 1) instanceof Horista) {
+			 Horista horista = (Horista) listaEmpregados.get(nEmpTemp - 1);
 			 
 			 horista.cartaoPonto();
 			 
@@ -108,5 +109,21 @@ public class Funcionalidades {
 			 System.out.println("\nErro: Empregado não é horista.\n");
 		 }
 		 teste();
+	 }
+	 
+	 public static void lancarResultadoVenda() {
+		 System.out.println("\n**  	LANÇAR RESULTADO DE VENDA  		**\n");
+		 System.out.println("Digite o número do Empregado:");
+		 int nEmpTemp = input.nextInt();
+		 input.nextLine();
+		 
+		 if (listaEmpregados.get(nEmpTemp - 1) instanceof Comissionado) {
+			 Comissionado comissionado = (Comissionado) listaEmpregados.get(nEmpTemp - 1);
+			 
+			 comissionado.resultadoVenda();
+			 
+		 } else {
+			 System.out.println("\nErro: Empregado não é comissionado.\n");
+		 }
 	 }
 }
