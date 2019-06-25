@@ -11,7 +11,8 @@ import folhapagamento.empregado.Horista;
 public class Funcionalidades {
 	  static Scanner input = new Scanner(System.in);
 	  
-	  private static int numEmpregado = 01;
+	  private static int numEmpregado = 1, numeroSindicato = 1;
+	  private static double taxaSindical = 0;
 	  
 	  static ArrayList<Empregado> listaEmpregados = new ArrayList<Empregado>();
 	  
@@ -34,7 +35,7 @@ public class Funcionalidades {
 		  
 		  if (isSindicato == 1) {
 			  System.out.print("Digite o valor da taxa sindical:\nR$ ");
-			  double taxaSidicato = input.nextDouble();
+			  taxaSindical = input.nextDouble();
 			  input.nextLine();
 		  }
 		  
@@ -47,6 +48,12 @@ public class Funcionalidades {
 			 			  
 			  horista.salario();
 			  
+			  if (isSindicato == 1) {
+				  horista.getSindicato().setNumeroSindicato(numeroSindicato);
+				  horista.getSindicato().setTaxaSindical(taxaSindical);
+				  numeroSindicato++;
+			  }
+			  
 			  listaEmpregados.add(horista);
 			  
 		  } else if (tipo == 2) {
@@ -54,12 +61,24 @@ public class Funcionalidades {
 			  
 			  assalariado.salario();
 			  
+			  if (isSindicato == 1) {
+				  assalariado.getSindicato().setNumeroSindicato(numeroSindicato);
+				  assalariado.getSindicato().setTaxaSindical(taxaSindical);
+				  numeroSindicato++;
+			  }
+			  
 			  listaEmpregados.add(assalariado);
 			  
 		  } else if (tipo == 3) {
 			  Comissionado comissionado = new Comissionado(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo);
 			  
 			  comissionado.salario();
+			  
+			  if (isSindicato == 1) {
+				  comissionado.getSindicato().setNumeroSindicato(numeroSindicato);
+				  comissionado.getSindicato().setTaxaSindical(taxaSindical);
+				  numeroSindicato++;
+			  }
 			  
 			  listaEmpregados.add(comissionado);
 			  
@@ -119,7 +138,6 @@ public class Funcionalidades {
 			 }
 		 }
 		 
-		 teste();
 	 }
 	 
 	 public static void lancarResultadoVenda() {
@@ -152,7 +170,8 @@ public class Funcionalidades {
 		for (int i=0; i < listaEmpregados.size(); i++) {
 			 if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {			// Procura o empregado solicitado
 				 if (listaEmpregados.get(i).getIsSindicato() == 1) {				// Verifica se pertence ao sindicato
-							 
+					 listaEmpregados.get(i).getSindicato().taxaServico();
+					 // Descontar taxa no dia do pagamento
 					 
 				 } else {
 					 System.out.println("\nErro: Empregado não pertence ao sindicato.\n");
@@ -160,4 +179,6 @@ public class Funcionalidades {
 			 }
 		 }
 	}
+
+	 
 }
