@@ -12,8 +12,8 @@ public class Horista extends Empregado {
 	}
 	
 	// Agenda Padrão
-	private String agenda = "mensal";
-	private int dia = 30;
+	private String agenda = "semanal";
+	private int frequencia = 1;
 
 	// Salário
 	private double salarioHorista = 0;
@@ -37,13 +37,13 @@ public class Horista extends Empregado {
 		int cartaoPontoS = input.nextInt();
 		
 		// Calcula o salário
-		this.salarioHorista = salarioHorista + (salarioHorista(salarioHora, cartaoPontoE, cartaoPontoS));
+		this.salarioHorista = salarioHorista + (calculaSalario(salarioHora, cartaoPontoE, cartaoPontoS));
 		
 		System.out.println("\nCartão de Ponto registrado com sucesso!\n");		
 	}
 	
 	// Calcula o salário de acordo com o cartão ponto
-	public static double salarioHorista(double salarioHora, int entrada, int saida) {
+	public static double calculaSalario(double salarioHora, int entrada, int saida) {
 		double salario;
 		
 		int horaTrabalhada = saida - entrada;
@@ -84,12 +84,12 @@ public class Horista extends Empregado {
 		this.agenda = agenda;
 	}
 
-	public int getDia() {
-		return dia;
+	public int getFrequencia() {
+		return frequencia;
 	}
 
-	public void setDia(int dia) {
-		this.dia = dia;
+	public void setFrequencia(int frequencia) {
+		this.frequencia = frequencia;
 	}
 
 	public double getSalarioHorista() {
