@@ -11,7 +11,7 @@ public class Sindicato {
 	private double valorTaxaServico = 0; 
 	
 	public void taxaServico() {
-		System.out.println("\nDigite o serviço adicional prestado pelo sindicato:");
+		System.out.print("\nDigite o serviço adicional prestado pelo sindicato:\nR$ ");
 		String servicoPrestado = input.nextLine();
 		
 		System.out.println("\nValor da taxa de serviço:");
