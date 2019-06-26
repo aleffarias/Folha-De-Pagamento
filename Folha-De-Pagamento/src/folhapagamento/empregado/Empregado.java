@@ -1,5 +1,7 @@
 package folhapagamento.empregado;
 
+import java.util.Scanner;
+
 public abstract class Empregado {
 	private int numeroEmpregado;
 	private String nome;
@@ -9,6 +11,8 @@ public abstract class Empregado {
 	private int isSindicato = 0;
 
 	Sindicato sindicato = new Sindicato();
+	
+	 static Scanner input = new Scanner(System.in);
 	
 	// Construtor
 	public Empregado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento, int isSindicato) {
@@ -20,7 +24,57 @@ public abstract class Empregado {
 		this.isSindicato = isSindicato;
 	}
 	
+	public void alterarDetalhes(int opcao) {
+		switch(opcao) {
+		case 1:
+			System.out.println("Digite o nome do empregado:");
+			 String nome = input.nextLine();
+			
+			 setNome(nome);
+			 
+			break;
+		
+		case 2:
+			 System.out.println("\nDigite o endereço do empregado:");
+			 String endereco = input.nextLine();
+			
+			 setEndereco(endereco);
+			 
+			break;
+		
+		case 3:
+			System.out.println("\nMétodo de pagamento:\n(1) - Cheque pelos correios\n(2) - Cheque em mãos\n(3) - Depósito em conta bancária");
+			int metodoPagamento = input.nextInt();
+			input.nextLine();
+			 
+			setMetodoPagamento(metodoPagamento);			
+			
+			break;
+		
+		case 4:
+			System.out.println("\nPertence ao sindicato?\n(1) - Sim\n(0) - Não");
+			int isSindicato = input.nextInt();
+			input.nextLine();
+			
+			setIsSindicato(isSindicato);
+			
+			if (isSindicato == 1) {
+			  System.out.print("Digite o valor da taxa sindical:\nR$ ");
+			  double taxaSindical = input.nextDouble();
+			  input.nextLine();
+			  
+			  sindicato.setNumeroSindicato(getNumeroEmpregado());
+			  sindicato.setTaxaSindical(taxaSindical);
+			  
+			  setNumeroEmpregado(getNumeroEmpregado() + 1);
+			}
+			
+			break;
+		}
+	}
+	
 	public abstract void salario();
+
 	
 	//======================================= Get/Set =================================================
 	
