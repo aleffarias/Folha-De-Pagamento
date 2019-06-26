@@ -32,6 +32,8 @@ public abstract class Empregado {
 			
 			 setNome(nome);
 			 
+			 System.out.println("\nNome do empregado alterado com sucesso!\n");
+			 
 			break;
 		
 		case 2:
@@ -40,6 +42,8 @@ public abstract class Empregado {
 			
 			 setEndereco(endereco);
 			 
+			 System.out.println("\nEndereço do empregado alterado com sucesso!\n");
+			 
 			break;
 		
 		case 3:
@@ -47,7 +51,9 @@ public abstract class Empregado {
 			int metodoPagamento = input.nextInt();
 			input.nextLine();
 			 
-			setMetodoPagamento(metodoPagamento);			
+			setMetodoPagamento(metodoPagamento);
+			
+			System.out.println("\nMétodo de pagamento do empregado alterado com sucesso!\n");
 			
 			break;
 		
@@ -68,6 +74,8 @@ public abstract class Empregado {
 			  
 			  setNumeroEmpregado(getNumeroEmpregado() + 1);
 			}
+			
+			System.out.println("\nSindicato do empregado alterado com sucesso!\n");
 			
 			break;
 		}
