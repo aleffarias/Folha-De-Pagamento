@@ -49,7 +49,13 @@ public class Main {
 			case 7:
 				
 				break;
+			case 8:
 				
+				break;
+			
+			case 9:
+				Funcionalidades.agendaPagamento();
+				break;
 			case 0:
 				System.exit(0);
 			

@@ -69,8 +69,6 @@ public class Funcionalidades {
 			  
 			  listaEmpregados.add(assalariado);
 			  
-			  //assalariado.toString();
-			  
 		  } else if (tipo == 3) {
 			  Comissionado comissionado = new Comissionado(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo);
 			  
@@ -274,6 +272,34 @@ public class Funcionalidades {
 		
 		
 	}
+	
+	public static void agendaPagamento() {
+		System.out.println("\n**  				AGENDA DE PAGAMENTO 				**\n");
+		
+		// Agenda Padrão
+		System.out.println("\nEMPREGADOS PAGOS SEMANALMENTE\n");
+		for (int i=0; i < listaEmpregados.size(); i++) {
+			if (listaEmpregados.get(i) instanceof Horista) {
+				System.out.println(listaEmpregados.get(0).toString() + "\n");
+			}
+		}
+		
+		System.out.println("\nEMPREGADOS PAGOS BI-SEMANALMENTE\n");
+		for (int i=0; i < listaEmpregados.size(); i++) {
+			if (listaEmpregados.get(i) instanceof Comissionado) {
+				System.out.println(listaEmpregados.get(0).toString() + "\n");
+			}
+		}
+		
+		System.out.println("\nEMPREGADOS PAGOS MENSALMENTE\n");		
+		for (int i=0; i < listaEmpregados.size(); i++) {
+			if (listaEmpregados.get(i) instanceof Assalariado) {
+				System.out.println(listaEmpregados.get(0).toString() + "\n");
+			}
+		}
+		
+	}
+	
 	
 	//======================================= Get/Set =================================================
 	
