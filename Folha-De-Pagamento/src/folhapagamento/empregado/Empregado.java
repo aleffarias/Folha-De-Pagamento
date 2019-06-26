@@ -81,6 +81,7 @@ public abstract class Empregado {
 		}
 	}
 	
+	
 	public abstract void salario();
 
 	
@@ -146,6 +147,35 @@ public abstract class Empregado {
 
 	public void setSindicato(Sindicato sindicato) {
 		this.sindicato = sindicato;
+	}
+	
+	public String toString() {
+		String string;
+		
+		string = "Número Empregado: " + this.numeroEmpregado + "		Nome: " + this.nome;
+		string += "\n--------------------------------------------------------------------------------------------------------\n";
+		string += "Endereço: " + this.endereco;
+		string += "\n--------------------------------------------------------------------------------------------------------\n";
+		
+		if (this.metodoPagamento == 1) {
+			string += "Método de Pagamento: Cheque pelos correios";
+		} else if (this.metodoPagamento == 2) {
+			string += "Método de Pagamento: Cheque em mãos";
+		} else if (this.metodoPagamento == 3) {
+			string += "Método de Pagamento: Depósito em conta bancária";
+		}
+		
+		string += "\n--------------------------------------------------------------------------------------------------------\n";
+		
+		if (isSindicato == 1) {
+			string += "Sindicado: Pertence			Número do Sindicato: " + this.sindicato.getNumeroSindicato() ;
+		} else {
+			string += "Sindicado: Não Pertence";
+		}
+		
+		string += "\n--------------------------------------------------------------------------------------------------------\n";
+		
+		return string;
 	}
 	
 }

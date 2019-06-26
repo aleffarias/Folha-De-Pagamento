@@ -18,13 +18,14 @@ public class Assalariado extends Empregado {
 	
 	
 	// Salário
-	private double salarioAssalariado;
+	private double salarioAssalariadoFixo;
+	private double salarioAssalariadoLiq;
 	
 	@Override
 	public void salario() {
 		System.out.print("\nInforme o salário fixo mensal:\nExemplo: 1500 - 3000.56\nR$ ");
 		double salarioTemp = input.nextDouble();
-		this.salarioAssalariado = salarioTemp;
+		this.salarioAssalariadoFixo = salarioTemp;
 		
 	}
 	
@@ -45,9 +46,27 @@ public class Assalariado extends Empregado {
 	public void setDia(int dia) {
 		this.dia = dia;
 	}
+	
+	public double getSalarioAssalariadoFixo() {
+		return salarioAssalariadoFixo;
+	}
 
-	public double getSalario() {
-		return salarioAssalariado;
+	public double getSalarioAssalariadoLiq() {
+		return salarioAssalariadoLiq;
+	}
+
+	public String toString() {
+		String string;
+		
+		string = super.toString();
+		
+		string += "Tipo: Horista		Agenda de Pagamento: " + agenda;
+		string += "\n--------------------------------------------------------------------------------------------------------\n";
+		string += "Salário Bruto: R$ " + salarioAssalariadoFixo;
+		string += "\n__________________________________________________________________________\n";
+		string += "Salário Líquido: R$ " + salarioAssalariadoLiq;
+		
+		return string;
 	}
 
 }

@@ -22,7 +22,7 @@ public class Comissionado extends Empregado {
 	
 	// Salário
 	private double salarioComissionadoFixo;
-	private double salarioComissionadoCom;
+	private double salarioComissionadoLiq;
 	private double comissao;
 	
 	@Override
@@ -50,7 +50,7 @@ public class Comissionado extends Empregado {
 		System.out.print("\nValor da venda:\nExemplo: 1500 - 3000.56\nR$ "); 
 		double valorVenda = input.nextDouble();
 		
-		this.salarioComissionadoCom = salarioComissionadoFixo + ((valorVenda * comissao)/100);
+		this.salarioComissionadoLiq = salarioComissionadoFixo + ((valorVenda * comissao)/100);
 		
 		System.out.println("\n==================================================================================");
 		System.out.println("Nome: " + getNome() + "		Número do empregado: " + getNumeroEmpregado());
@@ -84,11 +84,25 @@ public class Comissionado extends Empregado {
 	}
 
 	public double getSalarioComissionadoCom() {
-		return salarioComissionadoCom;
+		return salarioComissionadoLiq;
 	}
 
 	public double getComissao() {
 		return comissao;
+	}
+	
+	public String toString() {
+		String string;
+		
+		string = super.toString();
+		
+		string += "Tipo: Comissionado		Agenda de Pagamento: " + this.agenda + "		Frequência: A cada " + this.frequencia + " semana(s)";
+		string += "\n--------------------------------------------------------------------------------------------------------\n";
+		string += "Salário Bruto: R$ " + this.salarioComissionadoFixo + "	Comissão: " + this.comissao + "%";
+		string += "\n_________________________________________________________________________________________________________\n";
+		string += "Salário Líquido: R$ " + this.salarioComissionadoLiq;
+		
+		return string;
 	}
 
 	

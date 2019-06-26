@@ -95,5 +95,19 @@ public class Horista extends Empregado {
 	public double getSalarioHorista() {
 		return salarioHorista;
 	}
+	
+	public String toString() {
+		String string;
+		
+		string = super.toString();
+		
+		string += "Tipo: Horista		Agenda de Pagamento: " + agenda + "		Frequência: A cada " + frequencia + " semana(s)";
+		string += "\n--------------------------------------------------------------------------------------------------------\n";
+		string += "Salário Hora: R$ " + salarioHora;
+		string += "\n__________________________________________________________________________\n";
+		string += "Salário Líquido: R$ " + salarioHorista;
+		
+		return string;
+	}
 
 }
