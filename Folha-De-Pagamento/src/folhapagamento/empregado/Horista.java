@@ -14,6 +14,7 @@ public class Horista extends Empregado {
 	// Agenda Padrão
 	private String agenda = "semanal";
 	private int frequencia = 1;
+	private int diaSemana = 5;
 
 	// Salário
 	private double salarioHorista = 0;
@@ -92,6 +93,14 @@ public class Horista extends Empregado {
 		this.frequencia = frequencia;
 	}
 
+	public int getDiaSemana() {
+		return diaSemana;
+	}
+
+	public void setDiaSemana(int diaSemana) {
+		this.diaSemana = diaSemana;
+	}
+
 	public double getSalarioHorista() {
 		return salarioHorista;
 	}
@@ -101,7 +110,7 @@ public class Horista extends Empregado {
 		
 		string = super.toString();
 		
-		string += "Tipo: Horista		Agenda de Pagamento: " + agenda + "		Frequência: A cada " + frequencia + " semana(s)";
+		string += "Tipo: Horista		Agenda de Pagamento: " + agenda + "		Frequência: A cada " + frequencia + " semana(s)" + "	Dia da semana: " + diaSemana;
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
 		string += "Salário Hora: R$ " + salarioHora;
 		string += "\n__________________________________________________________________________\n";

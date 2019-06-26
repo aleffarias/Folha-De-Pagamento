@@ -18,6 +18,7 @@ public class Comissionado extends Empregado {
 	// Agenda Padrão
 	private String agenda = "bi-semanal";
 	private int frequencia = 2;
+	private int diaSemana = 5;
 	
 	
 	// Salário
@@ -79,6 +80,14 @@ public class Comissionado extends Empregado {
 		this.frequencia = frequencia;
 	}
 
+	public int getDiaSemana() {
+		return diaSemana;
+	}
+
+	public void setDiaSemana(int diaSemana) {
+		this.diaSemana = diaSemana;
+	}
+
 	public double getSalarioComissionadoFixo() {
 		return salarioComissionadoFixo;
 	}
@@ -96,7 +105,7 @@ public class Comissionado extends Empregado {
 		
 		string = super.toString();
 		
-		string += "Tipo: Comissionado		Agenda de Pagamento: " + this.agenda + "		Frequência: A cada " + this.frequencia + " semana(s)";
+		string += "Tipo: Comissionado		Agenda de Pagamento: " + this.agenda + "	Frequência: A cada " + this.frequencia + " semana(s)" + "	Dia da semana: " + diaSemana;
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
 		string += "Salário Bruto: R$ " + this.salarioComissionadoFixo + "	Comissão: " + this.comissao + "%";
 		string += "\n_________________________________________________________________________________________________________\n";
