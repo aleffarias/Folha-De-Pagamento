@@ -69,6 +69,8 @@ public class Funcionalidades {
 			  
 			  listaEmpregados.add(assalariado);
 			  
+			  //assalariado.toString();
+			  
 		  } else if (tipo == 3) {
 			  Comissionado comissionado = new Comissionado(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo);
 			  
@@ -85,6 +87,8 @@ public class Funcionalidades {
 		  } else {
 			  System.out.println("\nErro: Opção Inválida.\\n");
 		  }	
+		 
+		 teste();
 		  
 		 System.out.println("\nEmpregado cadastrado com sucesso!\n");
 		 numEmpregado++;
@@ -93,12 +97,10 @@ public class Funcionalidades {
 	  
 	// Teste
 	 public static void teste() {
-		  Horista horista = (Horista) listaEmpregados.get(0);
-		  System.out.println(horista.getSalarioHorista());
-		  
+		 System.out.println(listaEmpregados.get(0).toString());
 		  }
 	  
-	 public static void removerEmpregado() {
+	public static void removerEmpregado() {
 		  System.out.println("\n\t**  	REMOVER FUNCIONÁRIO  	**\n");
 		  
 		  System.out.println("Digite o número do Empregado:\n");
@@ -119,7 +121,7 @@ public class Funcionalidades {
 		  System.out.println("\nErro: Empregado não encontrado.\n");	
 	  }
 	 
-	 public static void lancarCartaoPonto() {
+	public static void lancarCartaoPonto() {
 		 System.out.println("\n**  	LANÇAR CARTÃO DE PONTO  	**\n");	
 		 System.out.println("Digite o número do Empregado:");
 		 int nEmpTemp = input.nextInt();
@@ -141,13 +143,14 @@ public class Funcionalidades {
 		 
 	 }
 	 
-	 public static void lancarResultadoVenda() {
+	public static void lancarResultadoVenda() {
 		 System.out.println("\n**  	LANÇAR RESULTADO DE VENDA  		**\n");
 		 System.out.println("Digite o número do Empregado:");
 		 int nEmpTemp = input.nextInt();
 		 input.nextLine();
 		 
 		 for (int i=0; i < listaEmpregados.size(); i++) {
+			 System.out.println("Entrou");
 			 if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {			// Procura o empregado solicitado
 				 if (listaEmpregados.get(i) instanceof Comissionado) {				// Verifica se é comissionado
 					 Comissionado comissionado = (Comissionado) listaEmpregados.get(i);
@@ -163,7 +166,7 @@ public class Funcionalidades {
 	
 	 }
 	 
-	 public static void lancarTaxaServico() {
+	public static void lancarTaxaServico() {
 		System.out.println("\n**  	LANÇAR TAXA DE SERVIÇO  	**\n");
 		System.out.println("Digite o número do Empregado:");
 		int nEmpTemp = input.nextInt();
@@ -221,6 +224,7 @@ public class Funcionalidades {
 						  }
 						  
 						  listaEmpregados.add(i, horista);
+						  listaEmpregados.remove(i);
 						  
 					  } else if (tipo == 2) {
 						  Assalariado assalariado = new Assalariado(listaEmpregados.get(i).getNumeroEmpregado(), listaEmpregados.get(i).getNome(), 
@@ -233,7 +237,8 @@ public class Funcionalidades {
 							  assalariado.getSindicato().setTaxaSindical(listaEmpregados.get(i).getSindicato().getTaxaSindicall());
 						  }
 						  
-						  listaEmpregados.add(i, assalariado);						  
+						  listaEmpregados.add(assalariado);
+						  listaEmpregados.remove(i);
 						  
 					  } else if (tipo == 3) {
 						  Comissionado comissionado = new Comissionado(listaEmpregados.get(i).getNumeroEmpregado(), listaEmpregados.get(i).getNome(), 
@@ -247,6 +252,7 @@ public class Funcionalidades {
 						  }
 						  
 						  listaEmpregados.add(i, comissionado);
+						  listaEmpregados.remove(i);
 					  }
 					  
 					  System.out.println("\nTipo do empregado alterado com sucesso!\n");
@@ -259,6 +265,13 @@ public class Funcionalidades {
 				
 			}
 		}		
+		
+	}
+	
+	public static void rodarFolha() {
+		System.out.println("\n**  	RODAR A FOLHA DE PAGAMENTO  	**\n");
+		System.out.println("Verificando Empregados...");
+		
 		
 	}
 	
