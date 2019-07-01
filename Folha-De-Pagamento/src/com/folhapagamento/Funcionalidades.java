@@ -1,12 +1,12 @@
-package folhapagamento;
+package com.folhapagamento;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import folhapagamento.empregado.Assalariado;
-import folhapagamento.empregado.Comissionado;
-import folhapagamento.empregado.Empregado;
-import folhapagamento.empregado.Horista;
+import com.empregado.Assalariado;
+import com.empregado.Comissionado;
+import com.empregado.Empregado;
+import com.empregado.Horista;
 
 public class Funcionalidades {
 	  static Scanner input = new Scanner(System.in);
