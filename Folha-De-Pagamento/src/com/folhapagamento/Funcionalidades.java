@@ -44,8 +44,9 @@ public class Funcionalidades {
 		  input.nextLine();
 		  
 		  if (tipo == 1) {
+			  
 			  Horista horista = new Horista(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo);
-			 			  
+			 
 			  horista.salario();
 			  
 			  if (isSindicato == 1) {
@@ -263,27 +264,7 @@ public class Funcionalidades {
 	public static void agendaPagamento() {
 		System.out.println("\n**  				AGENDA DE PAGAMENTO 				**\n");
 		
-		// Agenda Padrão
-		System.out.println("\nEMPREGADOS PAGOS SEMANALMENTE\n");
-		for (int i=0; i < listaEmpregados.size(); i++) {
-			if (listaEmpregados.get(i) instanceof Horista) {
-				System.out.println(listaEmpregados.get(0).toString() + "\n");
-			}
-		}
-		
-		System.out.println("\nEMPREGADOS PAGOS BI-SEMANALMENTE\n");
-		for (int i=0; i < listaEmpregados.size(); i++) {
-			if (listaEmpregados.get(i) instanceof Comissionado) {
-				System.out.println(listaEmpregados.get(0).toString() + "\n");
-			}
-		}
-		
-		System.out.println("\nEMPREGADOS PAGOS MENSALMENTE\n");		
-		for (int i=0; i < listaEmpregados.size(); i++) {
-			if (listaEmpregados.get(i) instanceof Assalariado) {
-				System.out.println(listaEmpregados.get(0).toString() + "\n");
-			}
-		}
+		Search.searchAgenda(listaEmpregados);
 		
 	}
 	
