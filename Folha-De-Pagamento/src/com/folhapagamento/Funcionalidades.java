@@ -85,83 +85,69 @@ public class Funcionalidades {
 		  } else {
 			  System.out.println("\nErro: Opção Inválida.\\n");
 		  }	
-		 
-		 teste();
 		  
 		 System.out.println("\nEmpregado cadastrado com sucesso!\n");
 		 numEmpregado++;
 		
 	  }
 	  
-	// Teste
-	 public static void teste() {
-		 System.out.println(listaEmpregados.get(0).toString());
-		  }
 	  
 	public static void removerEmpregado() {
-		  System.out.println("\n\t**  	REMOVER FUNCIONÁRIO  	**\n");
+		System.out.println("\n\t**  	REMOVER FUNCIONÁRIO  	**\n");
 		  
-		  System.out.println("Digite o número do Empregado:\n");
-		  int nEmpTemp = input.nextInt();
-		  input.nextLine();
+		System.out.println("Digite o número do Empregado:\n");
+		int nEmpTemp = input.nextInt();
+		input.nextLine();
 		  
-		  System.out.println("\nRemovendo empregado...");
+		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		if (index == -1) return;
+		
+		System.out.println("\nRemovendo empregado...");
 		  
-		  for (int i=0; i < listaEmpregados.size(); i++) {
-				if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {
-					listaEmpregados.remove(i);
+		listaEmpregados.remove(index);
 					
-					System.out.println("\nEmpregado removido com sucesso!\n");	
-					return;
-				}
-			} 
-		  
-		  System.out.println("\nErro: Empregado não encontrado.\n");	
+		System.out.println("\nEmpregado removido com sucesso!\n");	
+				
 	  }
 	 
 	public static void lancarCartaoPonto() {
-		 System.out.println("\n**  	LANÇAR CARTÃO DE PONTO  	**\n");	
-		 System.out.println("Digite o número do Empregado:");
-		 int nEmpTemp = input.nextInt();
-		 input.nextLine();
+		System.out.println("\n**  	LANÇAR CARTÃO DE PONTO  	**\n");	
+		System.out.println("Digite o número do Empregado:");
+		int nEmpTemp = input.nextInt();
+		input.nextLine();
 		 
-		 for (int i=0; i < listaEmpregados.size(); i++) {
-			 if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {		// Procura o empregado solicitado
-				 if (listaEmpregados.get(i) instanceof Horista) {				// Verifica se é horista
-					 Horista horista = (Horista) listaEmpregados.get(i);
-					 
-					 horista.cartaoPonto();
-					 return;
-					 
-				 } else {
-					 System.out.println("\nErro: Empregado não é horista.\n");
-				 }
-			 }
-		 }
+		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		
+		
+		try {
+			if (index == -1) return;
+			
+			Horista horista = (Horista) listaEmpregados.get(index);
+			 
+			 horista.cartaoPonto();
+		} catch (Exception e) {
+			System.out.println("\nErro: Empregado não é horista.\n");
+		} 	 
 		 
 	 }
 	 
 	public static void lancarResultadoVenda() {
-		 System.out.println("\n**  	LANÇAR RESULTADO DE VENDA  		**\n");
-		 System.out.println("Digite o número do Empregado:");
-		 int nEmpTemp = input.nextInt();
-		 input.nextLine();
+		System.out.println("\n**  	LANÇAR RESULTADO DE VENDA  		**\n");
+		System.out.println("Digite o número do Empregado:");
+		int nEmpTemp = input.nextInt();
+		input.nextLine();
 		 
-		 for (int i=0; i < listaEmpregados.size(); i++) {
-			 System.out.println("Entrou");
-			 if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {			// Procura o empregado solicitado
-				 if (listaEmpregados.get(i) instanceof Comissionado) {				// Verifica se é comissionado
-					 Comissionado comissionado = (Comissionado) listaEmpregados.get(i);
-					 
-					 comissionado.resultadoVenda();
-					 return;
-					 
-				 } else {
-					 System.out.println("\nErro: Empregado não é comissionado.\n");
-				 }
-			 }
-		 }
-	
+		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+			
+		try {
+			if (index == -1) return;
+			
+			Comissionado comissionado = (Comissionado) listaEmpregados.get(index);
+			 
+			 comissionado.resultadoVenda();
+		} catch (Exception e) {
+			System.out.println("\nErro: Empregado não é comissionado.\n");
+		}	 
 	 }
 	 
 	public static void lancarTaxaServico() {
@@ -170,17 +156,18 @@ public class Funcionalidades {
 		int nEmpTemp = input.nextInt();
 		input.nextLine();
 		
-		for (int i=0; i < listaEmpregados.size(); i++) {
-			 if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {			// Procura o empregado solicitado
-				 if (listaEmpregados.get(i).getIsSindicato() == 1) {				// Verifica se pertence ao sindicato
-					 listaEmpregados.get(i).getSindicato().taxaServico();
-					 // Descontar taxa no dia do pagamento
-					 
-				 } else {
-					 System.out.println("\nErro: Empregado não pertence ao sindicato.\n");
-				 }
-			 }
-		 }
+		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		if (index == -1) return;
+		
+		if (listaEmpregados.get(index).getIsSindicato() == 1) {				
+			listaEmpregados.get(index).getSindicato().taxaServico();
+			 // Descontar taxa no dia do pagamento
+			 
+		} else {
+			System.out.println("\nErro: Empregado não pertence ao sindicato.\n");
+		}
+			 
+		 
 	}
 	 
 	public static void alterarDetalhe() {
@@ -221,7 +208,7 @@ public class Funcionalidades {
 							  horista.getSindicato().setTaxaSindical(listaEmpregados.get(i).getSindicato().getTaxaSindicall());
 						  }
 						  
-						  listaEmpregados.add(i, horista);
+						  listaEmpregados.add(horista);
 						  listaEmpregados.remove(i);
 						  
 					  } else if (tipo == 2) {
@@ -249,7 +236,7 @@ public class Funcionalidades {
 							  comissionado.getSindicato().setTaxaSindical(listaEmpregados.get(i).getSindicato().getTaxaSindicall());
 						  }
 						  
-						  listaEmpregados.add(i, comissionado);
+						  listaEmpregados.add(comissionado);
 						  listaEmpregados.remove(i);
 					  }
 					  
