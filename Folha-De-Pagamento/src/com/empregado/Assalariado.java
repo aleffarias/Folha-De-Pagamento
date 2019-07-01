@@ -7,15 +7,13 @@ public class Assalariado extends Empregado {
 	Scanner input = new Scanner(System.in);
 	
 	// Construtor 
-	public Assalariado(int numeroEmpregado, String nome, String endereco, int tipo, int metodoPagamento,
-			int isSindicato) {
-		super(numeroEmpregado, nome, endereco, tipo, metodoPagamento, isSindicato);
+	public Assalariado(int numeroEmpregado, String nome, String endereco, int metodoPagamento, int isSindicato, int tipo) {
+		super(numeroEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo);
 	}
 	
 	// Agenda Padrão
-	private String agenda = "mensal";
 	private int dia = 30;
-	
+	private String agenda = "Mensal - Padrão" + "	Dia: " + this.dia;
 	
 	// Salário
 	private double salarioAssalariadoFixo;
@@ -25,6 +23,8 @@ public class Assalariado extends Empregado {
 	public void salario() {
 		System.out.print("\nInforme o salário fixo mensal:\nExemplo: 1500 - 3000.56\nR$ ");
 		double salarioTemp = input.nextDouble();
+		input.nextLine();
+		
 		this.salarioAssalariadoFixo = salarioTemp;
 		
 	}
@@ -60,11 +60,11 @@ public class Assalariado extends Empregado {
 		
 		string = super.toString();
 		
-		string += "Tipo: Horista		Agenda de Pagamento: " + agenda;
+		string += "Tipo: Horista		Salário Bruto: R$ " + this.salarioAssalariadoFixo;
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
-		string += "Salário Bruto: R$ " + salarioAssalariadoFixo;
+		string += "Agenda de Pagamento: " + this.agenda;
 		string += "\n__________________________________________________________________________\n";
-		string += "Salário Líquido: R$ " + salarioAssalariadoLiq;
+		string += "Salário Líquido: R$ " + this.salarioAssalariadoLiq;
 		
 		return string;
 	}
