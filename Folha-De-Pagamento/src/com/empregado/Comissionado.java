@@ -14,7 +14,7 @@ public class Comissionado extends Empregado {
 	// Agenda Padrão
 	private int frequencia = 2;
 	private int diaSemana = 5;
-	private String agenda = "Bi-semanal" + "	Frequência: A cada " + this.frequencia + " semana(s)" + "	 Dia da semana: " + this.diaSemana;
+	private String agenda = "Semanal - Padrão" + "	 Frequência: A cada " + this.frequencia + " semana(s)" + "	 Dia da semana: " + this.diaSemana;
 	
 	
 	// Salário
@@ -104,7 +104,7 @@ public class Comissionado extends Empregado {
 		
 		string = super.toString();
 		
-		string += "Tipo: Comissionado	Salário Bruto: R$ " + this.salarioComissionadoFixo + "	Comissão: " + this.comissao + "%";
+		string += "Tipo: Comissionado		Salário Bruto: R$ " + this.salarioComissionadoFixo + "	Comissão: " + this.comissao + "%";
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
 		string += "Agenda de Pagamento: " + this.agenda;
 		string += "\n_________________________________________________________________________________________________________\n";

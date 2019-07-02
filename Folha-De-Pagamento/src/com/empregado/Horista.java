@@ -112,10 +112,10 @@ public class Horista extends Empregado {
 		
 		string = super.toString();
 		
-		string += "Tipo: Horista	Salário Hora: R$ " + this.salarioHora;
+		string += "Tipo: Horista		Salário Hora: R$ " + this.salarioHora;
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
 		string += "Agenda de Pagamento: " + this.agenda;
-		string += "\n__________________________________________________________________________\n";
+		string += "\n________________________________________________________________________________________________________\n";
 		string += "Salário Líquido: R$ " + salarioHorista;
 		
 		return string;

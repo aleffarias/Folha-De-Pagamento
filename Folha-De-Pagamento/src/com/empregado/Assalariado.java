@@ -60,10 +60,10 @@ public class Assalariado extends Empregado {
 		
 		string = super.toString();
 		
-		string += "Tipo: Horista		Salário Bruto: R$ " + this.salarioAssalariadoFixo;
+		string += "Tipo: Assalariado		Salário Bruto: R$ " + this.salarioAssalariadoFixo;
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
 		string += "Agenda de Pagamento: " + this.agenda;
-		string += "\n__________________________________________________________________________\n";
+		string += "\n________________________________________________________________________________________________________\n";
 		string += "Salário Líquido: R$ " + this.salarioAssalariadoLiq;
 		
 		return string;
