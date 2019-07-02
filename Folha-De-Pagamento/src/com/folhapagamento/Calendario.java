@@ -43,6 +43,7 @@ public class Calendario {
 		}	
 	}
 	
+	@Override
 	public String toString() {
 		return "Dia: " + this.dia + " Mês: " + this.mes + " Ano: " + this.ano;
 	}
@@ -88,6 +89,5 @@ public class Calendario {
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
-	
 	
 }
