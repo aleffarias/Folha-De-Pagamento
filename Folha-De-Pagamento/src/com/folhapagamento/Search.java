@@ -29,7 +29,7 @@ public class Search {
 		}
 		
 		for (i=0; i < listaEmpregados.size(); i++) {
-			System.out.println(listaEmpregados.get(i).toString() + "\n");
+			System.out.println(listaEmpregados.get(i).toString() + "\n\n");
 		}
 	}
 	
