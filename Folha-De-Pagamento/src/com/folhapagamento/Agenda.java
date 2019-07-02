@@ -1,8 +1,12 @@
 package com.folhapagamento;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
+import com.empregado.Assalariado;
+import com.empregado.Comissionado;
 import com.empregado.Empregado;
+import com.empregado.Horista;
 
 public class Agenda {
 	
@@ -36,6 +40,19 @@ public class Agenda {
 	}
 	
 	public void novaAgenda(ArrayList<Empregado> listaEmpregados, int index) {
+		Scanner input = new Scanner(System.in);
+		Empregado empregado = null;
+		
+		int tipo = listaEmpregados.get(index).getTipo();
+		
+	
+		System.out.println("\nEscolha uma opção:\n(1) - Mensal\n(2) - Semanal");
+		int opcao1 = input.nextInt();
+		input.nextLine();
+		
+		if (opcao1 == 1) {
+			
+		}
 		
 	}
 }
