@@ -15,8 +15,9 @@ public class Funcionalidades {
 	  private static double taxaSindical = 0;
 	  
 	  static ArrayList<Empregado> listaEmpregados = new ArrayList<Empregado>();
+	  Agenda agenda = new Agenda();
 	  
-	  public static void addEmpregado() {
+	  public void addEmpregado() {
 		  System.out.println("\n**  ADICIONAR EMPREGADO  **\n");
 		  
 		  System.out.println("Digite o nome do empregado:");
@@ -93,14 +94,14 @@ public class Funcionalidades {
 	  }
 	  
 	  
-	public static void removerEmpregado() {
+	public void removerEmpregado() {
 		System.out.println("\n\t**  	REMOVER FUNCIONÁRIO  	**\n");
 		  
 		System.out.println("Digite o número do Empregado:\n");
 		int nEmpTemp = input.nextInt();
 		input.nextLine();
 		  
-		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		int index = agenda.searchEmpregado(listaEmpregados, nEmpTemp);
 		if (index == -1) return;
 		
 		System.out.println("\nRemovendo empregado...");
@@ -111,13 +112,13 @@ public class Funcionalidades {
 				
 	  }
 	 
-	public static void lancarCartaoPonto() {
+	public void lancarCartaoPonto() {
 		System.out.println("\n**  	LANÇAR CARTÃO DE PONTO  	**\n");	
 		System.out.println("Digite o número do Empregado:");
 		int nEmpTemp = input.nextInt();
 		input.nextLine();
-		 
-		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		
+		int index = agenda.searchEmpregado(listaEmpregados, nEmpTemp);
 		
 		
 		try {
@@ -132,13 +133,13 @@ public class Funcionalidades {
 		 
 	 }
 	 
-	public static void lancarResultadoVenda() {
+	public void lancarResultadoVenda() {
 		System.out.println("\n**  	LANÇAR RESULTADO DE VENDA  		**\n");
 		System.out.println("Digite o número do Empregado:");
 		int nEmpTemp = input.nextInt();
 		input.nextLine();
 		 
-		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		int index = agenda.searchEmpregado(listaEmpregados, nEmpTemp);
 			
 		try {
 			if (index == -1) return;
@@ -151,33 +152,31 @@ public class Funcionalidades {
 		}	 
 	 }
 	 
-	public static void lancarTaxaServico() {
+	public void lancarTaxaServico() {
 		System.out.println("\n**  	LANÇAR TAXA DE SERVIÇO  	**\n");
 		System.out.println("Digite o número do Empregado:");
 		int nEmpTemp = input.nextInt();
 		input.nextLine();
 		
-		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		int index = agenda.searchEmpregado(listaEmpregados, nEmpTemp);
 		if (index == -1) return;
 		
 		if (listaEmpregados.get(index).getIsSindicato() == 1) {				
 			listaEmpregados.get(index).getSindicato().taxaServico();
-			 // Descontar taxa no dia do pagamento
 			 
 		} else {
 			System.out.println("\nErro: Empregado não pertence ao sindicato.\n");
 		}
-			 
-		 
+			 	 
 	}
 	 
-	public static void alterarDetalhe() {
+	public void alterarDetalhe() {
 		System.out.println("\n**  	ALTERAR DETALHES DO EMPREGADO  	**\n");
 		System.out.println("Digite o número do Funcionário:");
 		int nEmpTemp = input.nextInt();
 		input.nextLine();
 		
-		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		int index = agenda.searchEmpregado(listaEmpregados, nEmpTemp);
 		if (index == -1) return;
 		
 		System.out.println("Escolha uma opção:");
@@ -202,28 +201,43 @@ public class Funcionalidades {
 		
 	}
 	
-	public static void rodarFolha() {
+	public void rodarFolha() {
 		System.out.println("\n**  	RODAR A FOLHA DE PAGAMENTO  	**\n");
 		System.out.println("Verificando Empregados...");
 		
 		
+		
 	}
 	
-	public static void agendaPagamento() {
+	public void agendaPagamento() {
 		System.out.println("\n**  				AGENDA DE PAGAMENTO 				**\n");
 		
-		Search.searchAgenda(listaEmpregados);
+		agenda.consultaAgenda(listaEmpregados);
+		
+	}
+	
+	public void novaAgenda() {
+		System.out.println("\n**  	CRIAR AGENDA DE PAGAMENTO 	**\n");
+		System.out.println("\n**  	ALTERAR DETALHES DO EMPREGADO  	**\n");
+		System.out.println("Digite o número do Funcionário:");
+		int nEmpTemp = input.nextInt();
+		input.nextLine();
+		
+		int index = agenda.searchEmpregado(listaEmpregados, nEmpTemp);
+		if (index == -1) return;
+		
+		
 		
 	}
 	
 	
 	//======================================= Get/Set =================================================
 	
-	public static int getNumeroSindicato() {
+	public int getNumeroSindicato() {
 		return numeroSindicato;
 	}
 
-	public static void setNumeroSindicato(int numeroSindicato) {
+	public void setNumeroSindicato(int numeroSindicato) {
 		Funcionalidades.numeroSindicato = numeroSindicato;
 	}
 	 
