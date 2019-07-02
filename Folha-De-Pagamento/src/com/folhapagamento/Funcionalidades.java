@@ -226,7 +226,7 @@ public class Funcionalidades {
 		int index = agenda.searchEmpregado(listaEmpregados, nEmpTemp);
 		if (index == -1) return;
 		
-		
+		agenda.novaAgenda(listaEmpregados, index);
 		
 	}
 	
