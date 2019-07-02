@@ -11,6 +11,8 @@ public class Main {
 		
 		int opcao;
 		
+		Funcionalidades funcionalidades = new Funcionalidades();
+		
 		while (true) {
 			
 			menu();
@@ -20,27 +22,27 @@ public class Main {
 			
 			switch(opcao) {
 			case 1:
-				Funcionalidades.addEmpregado();
+				funcionalidades.addEmpregado();
 				break;
 				
 			case 2:
-				Funcionalidades.removerEmpregado();
+				funcionalidades.removerEmpregado();
 				break;
 				
 			case 3:
-				Funcionalidades.lancarCartaoPonto();
+				funcionalidades.lancarCartaoPonto();
 				break;
 				
 			case 4:
-				Funcionalidades.lancarResultadoVenda();
+				funcionalidades.lancarResultadoVenda();
 				break;
 			
 			case 5:
-				Funcionalidades.lancarTaxaServico();
+				funcionalidades.lancarTaxaServico();
 				break;
 			
 			case 6:	
-				Funcionalidades.alterarDetalhe();
+				funcionalidades.alterarDetalhe();
 				break;
 			
 			case 7:
@@ -52,7 +54,7 @@ public class Main {
 				break;
 			
 			case 9:
-				Funcionalidades.agendaPagamento();
+				funcionalidades.agendaPagamento();
 				break;
 			case 0:
 				System.exit(0);
