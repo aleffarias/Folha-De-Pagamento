@@ -123,9 +123,9 @@ public class Funcionalidades {
 		try {
 			if (index == -1) return;
 			
-			Horista horista = (Horista) listaEmpregados.get(index);
-			 
-			 horista.cartaoPonto();
+			Horista horista = (Horista) listaEmpregados.get(index);	 
+			horista.cartaoPonto();
+			
 		} catch (Exception e) {
 			System.out.println("\nErro: Empregado não é horista.\n");
 		} 	 
@@ -144,8 +144,8 @@ public class Funcionalidades {
 			if (index == -1) return;
 			
 			Comissionado comissionado = (Comissionado) listaEmpregados.get(index);
-			 
-			 comissionado.resultadoVenda();
+			comissionado.resultadoVenda();
+			
 		} catch (Exception e) {
 			System.out.println("\nErro: Empregado não é comissionado.\n");
 		}	 
@@ -177,79 +177,27 @@ public class Funcionalidades {
 		int nEmpTemp = input.nextInt();
 		input.nextLine();
 		
-		for (int i=0; i < listaEmpregados.size(); i++) {
-			if (listaEmpregados.get(i).getNumeroEmpregado() == nEmpTemp) {
-				System.out.println("Escolha uma opção:");
-				System.out.println("(1) - Alterar Nome");
-				System.out.println("(2) - Alterar Endereço");
-				System.out.println("(3) - Alterar Método de Pagamento");
-				System.out.println("(4) - Alterar Sindicato");
-				System.out.println("(5) - Alterar Tipo");
+		int index = Search.searchEmpregado(listaEmpregados, nEmpTemp);
+		if (index == -1) return;
+		
+		System.out.println("Escolha uma opção:");
+		System.out.println("(1) - Alterar Nome");
+		System.out.println("(2) - Alterar Endereço");
+		System.out.println("(3) - Alterar Método de Pagamento");
+		System.out.println("(4) - Alterar Sindicato");
+		System.out.println("(5) - Alterar Tipo");
 				
-				int opcao = input.nextInt();
-				input.nextLine();
+		int opcao = input.nextInt();
+		input.nextLine();
 				
-				if (opcao <=4 & opcao > 0) {		
-					listaEmpregados.get(i).alterarDetalhes(opcao);
-					
-				} else if(opcao == 5) {
-					
-					System.out.println("\nEscolha o tipo do empregado:\n(1) - Horista\n(2) - Assalariado\n(3) - Comissionado");
-					  int tipo = input.nextInt();
-					  input.nextLine();
-					  
-					  if (tipo == 1) {
-						  Horista horista = new Horista(listaEmpregados.get(i).getNumeroEmpregado(), listaEmpregados.get(i).getNome(), 
-								  listaEmpregados.get(i).getEndereco(), listaEmpregados.get(i).getMetodoPagamento(), listaEmpregados.get(i).getIsSindicato(), tipo);
-						 			  
-						  horista.salario();
-						  
-						  if (listaEmpregados.get(i).getIsSindicato() == 1) {
-							  horista.getSindicato().setNumeroSindicato(listaEmpregados.get(i).getSindicato().getNumeroSindicato());
-							  horista.getSindicato().setTaxaSindical(listaEmpregados.get(i).getSindicato().getTaxaSindicall());
-						  }
-						  
-						  listaEmpregados.add(horista);
-						  listaEmpregados.remove(i);
-						  
-					  } else if (tipo == 2) {
-						  Assalariado assalariado = new Assalariado(listaEmpregados.get(i).getNumeroEmpregado(), listaEmpregados.get(i).getNome(), 
-								  listaEmpregados.get(i).getEndereco(), listaEmpregados.get(i).getMetodoPagamento(), listaEmpregados.get(i).getIsSindicato(), tipo);
-						  
-						  assalariado.salario();
-						  
-						  if (listaEmpregados.get(i).getIsSindicato() == 1) {
-							  assalariado.getSindicato().setNumeroSindicato(listaEmpregados.get(i).getSindicato().getNumeroSindicato());
-							  assalariado.getSindicato().setTaxaSindical(listaEmpregados.get(i).getSindicato().getTaxaSindicall());
-						  }
-						  
-						  listaEmpregados.add(assalariado);
-						  listaEmpregados.remove(i);
-						  
-					  } else if (tipo == 3) {
-						  Comissionado comissionado = new Comissionado(listaEmpregados.get(i).getNumeroEmpregado(), listaEmpregados.get(i).getNome(), 
-								  listaEmpregados.get(i).getEndereco(), listaEmpregados.get(i).getMetodoPagamento(), listaEmpregados.get(i).getIsSindicato(), tipo);
-						  
-						  comissionado.salario();
-						  
-						  if (listaEmpregados.get(i).getIsSindicato() == 1) {
-							  comissionado.getSindicato().setNumeroSindicato(listaEmpregados.get(i).getSindicato().getNumeroSindicato());
-							  comissionado.getSindicato().setTaxaSindical(listaEmpregados.get(i).getSindicato().getTaxaSindicall());
-						  }
-						  
-						  listaEmpregados.add(comissionado);
-						  listaEmpregados.remove(i);
-					  }
-					  
-					  System.out.println("\nTipo do empregado alterado com sucesso!\n");
-					  
-					  return;
-					  
-				} else {
-					System.out.println("\nErro: Opção Inválida.\n");
-				}
+		if (opcao <=4 & opcao > 0) {		
+			listaEmpregados.get(index).alterarDetalhes(opcao);
 				
-			}
+		} else if(opcao == 5) {
+			EditarDetalhes.alterarTipo(listaEmpregados, index);	
+			  
+		} else {
+			System.out.println("\nErro: Opção Inválida.\n");
 		}		
 		
 	}
