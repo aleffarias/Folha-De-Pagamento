@@ -12,7 +12,7 @@ public abstract class Empregado {
 
 	Sindicato sindicato = new Sindicato();
 	
-	 static Scanner input = new Scanner(System.in);
+	static Scanner input = new Scanner(System.in);
 	
 	public Empregado(int numeroEmpregado, String nome, String endereco, int metodoPagamento, int isSindicato, int tipo) {
 		this.numeroEmpregado = numeroEmpregado;
