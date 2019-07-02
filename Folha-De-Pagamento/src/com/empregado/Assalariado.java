@@ -54,7 +54,8 @@ public class Assalariado extends Empregado {
 	public double getSalarioAssalariadoLiq() {
 		return salarioAssalariadoLiq;
 	}
-
+	
+	@Override
 	public String toString() {
 		String string;
 		
