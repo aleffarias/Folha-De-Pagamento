@@ -176,7 +176,7 @@ public abstract class Empregado {
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
 		
 		if (isSindicato == 1) {
-			string += "Sindicado: Pertence		Número do Sindicato: " + this.sindicato.getNumeroSindicato() + "	Taxa Sindical: R$ " + this.sindicato.getTaxaSindicall();
+			string += "Sindicado: Pertence		Número do Sindicato: " + this.sindicato.getNumeroSindicato() + "		Taxa Sindical: R$ " + this.sindicato.getTaxaSindicall();
 		} else {
 			string += "Sindicado: Não Pertence";
 		}
