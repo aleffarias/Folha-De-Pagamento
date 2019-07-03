@@ -223,7 +223,11 @@ public class Funcionalidades {
 				
 			} else if (listaEmpregados.get(i).getTipoAgenda() == "Mensal") {
 				
-				listaEmpregados.get(i).setDiaFrequencia(ultimo);
+				if (listaEmpregados.get(i).getDiaFrequencia() == 28 || listaEmpregados.get(i).getDiaFrequencia() == 30 
+					|| listaEmpregados.get(i).getDiaFrequencia() == 31) { // Verifica se o dia na agenda não foi alterado
+				
+					listaEmpregados.get(i).setDiaFrequencia(ultimo);
+				}
 				
 				if (listaEmpregados.get(i).getDiaFrequencia() == dia) {
 					listaEmpregados.get(i).pagarEmpregado(listaEmpregados, i);	
