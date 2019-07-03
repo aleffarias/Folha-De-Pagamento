@@ -59,7 +59,7 @@ public class Funcionalidades {
 			  listaEmpregados.add(horista);
 			  
 		  } else if (tipo == 2) {
-			  Assalariado assalariado = new Assalariado(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo, "Mensal", 30);
+			  Assalariado assalariado = new Assalariado(numEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo, "Mensal", 31);
 			  
 			  assalariado.salario();
 			  
@@ -201,7 +201,7 @@ public class Funcionalidades {
 		
 	}
 	
-	public void rodarFolha(int dia, int diaSemana, int semana) {
+	public void rodarFolha(int dia, int diaSemana, int semana, int ultimo) {
 		System.out.println("\n**  	RODAR A FOLHA DE PAGAMENTO  	**\n");
 		System.out.println("Verificando Empregados...\n");
 			
@@ -221,10 +221,14 @@ public class Funcionalidades {
 				
 				listaEmpregados.get(i).pagarEmpregado(listaEmpregados, i);
 				
-			} else if ((listaEmpregados.get(i).getTipoAgenda() == "Mensal") && (listaEmpregados.get(i).getDiaFrequencia() == dia)) {
+			} else if (listaEmpregados.get(i).getTipoAgenda() == "Mensal") {
 				
-				listaEmpregados.get(i).pagarEmpregado(listaEmpregados, i);
-		
+				listaEmpregados.get(i).setDiaFrequencia(ultimo);
+				
+				if (listaEmpregados.get(i).getDiaFrequencia() == dia) {
+					listaEmpregados.get(i).pagarEmpregado(listaEmpregados, i);	
+					
+				}
 			}
 		}
 		
