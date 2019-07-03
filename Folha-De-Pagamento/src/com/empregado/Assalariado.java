@@ -31,6 +31,7 @@ public class Assalariado extends Empregado {
 	public void pagarEmpregado(ArrayList<Empregado> empregado, int index) {
 		this.salarioAssalariadoLiq = salarioAssalariadoFixo - getSindicato().getTaxaSindicall() - getSindicato().getValorTaxaServico();
 		System.out.println(empregado.get(index).toString() + "\n");
+		
 		this.salarioAssalariadoLiq = 0;
 	}
 	
@@ -54,8 +55,14 @@ public class Assalariado extends Empregado {
 		string += "Tipo: Assalariado		Salário Bruto: R$ " + this.salarioAssalariadoFixo;
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
 		string += "Agenda de Pagamento: " + this.getTipoAgenda() + "	Dia: " + this.getDiaFrequencia();
-		string += "\n________________________________________________________________________________________________________\n";
-		string += "Salário Líquido: R$ " + this.salarioAssalariadoLiq;
+		string += "\n________________________________________________________________________________________________________\n\n";
+		
+		if (getIsSindicato() == 1) {
+			string += "Taxa Sindical ------------------------------------------------------------- (-) R$ " + getSindicato().getTaxaSindicall();
+			string += "\nTotal de Serviços --------------------------------------------------------- (-) R$ " + getSindicato().getValorTaxaServico();
+		}
+		
+		string += "\n\nSalário Líquido ---------------------------------------------------------------- R$ " + this.salarioAssalariadoLiq;
 		
 		return string;
 	}
