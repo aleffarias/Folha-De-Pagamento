@@ -1,16 +1,11 @@
 package com.folhapagamento;
 
-import java.util.Scanner;
-
 public class Main {
 
-	static Scanner input = new Scanner(System.in);
 	static Calendario calendario = new Calendario();
 
 	public static void main(String[] args) {
-		
-		int opcao;
-		
+				
 		Funcionalidades funcionalidades = new Funcionalidades();
 		
 		while (true) {
@@ -24,8 +19,7 @@ public class Main {
 			
 			menu();
 			
-			opcao = input.nextInt();
-			input.nextLine();
+			int opcao = TratamentoExc.lerInt();
 			
 			switch(opcao) {
 			case 1:

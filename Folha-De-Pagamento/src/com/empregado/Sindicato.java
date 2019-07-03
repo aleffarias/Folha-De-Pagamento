@@ -2,6 +2,8 @@ package com.empregado;
 
 import java.util.Scanner;
 
+import com.folhapagamento.TratamentoExc;
+
 public class Sindicato {
 	
 	Scanner input = new Scanner(System.in);
@@ -15,8 +17,7 @@ public class Sindicato {
 		String servicoPrestado = input.nextLine();
 		
 		System.out.println("\nValor da taxa de serviço:");
-		double valor = input.nextDouble();
-		input.nextLine();
+		double valor = TratamentoExc.lerDouble();
 		
 		this.valorTaxaServico = valorTaxaServico + valor;
 		

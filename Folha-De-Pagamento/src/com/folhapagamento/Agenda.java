@@ -1,13 +1,10 @@
 package com.folhapagamento;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import com.empregado.Empregado;
 
 public class Agenda {
-	
-	private Scanner input;
 
 	public int searchEmpregado(ArrayList<Empregado> listaEmpregados, int nEmpregado){
 		int i;
@@ -39,16 +36,14 @@ public class Agenda {
 	}
 	
 	public void novaAgenda(ArrayList<Empregado> listaEmpregados, int index) {
-		input = new Scanner(System.in);
 		String agenda = null;
 	
 		System.out.println("\nEscolha uma opção:\n(1) - Mensal\n(2) - Semanal");
-		int opcao = input.nextInt();
-		input.nextLine();
+		int opcao = TratamentoExc.lerInt();
 		
 		if (opcao == 1) {
 			System.out.println("\nEscolha o dia ou digite -1 para o último dia do mês");
-			int opcao2 = input.nextInt();
+			int opcao2 = TratamentoExc.lerInt();
 			
 			listaEmpregados.get(index).setTipoAgenda("Mensal");
 			
@@ -61,8 +56,7 @@ public class Agenda {
 			
 		} else if (opcao == 2) {
 			System.out.println("\nEscolha a frequencia:\n1 - Toda semana\n2 - A cada duas semanas\n3 - A cada três semanas\n");
-			int opcao2 = input.nextInt();
-			input.nextLine();
+			int opcao2 = TratamentoExc.lerInt();
 			
 			if (opcao2 == 1) agenda = "1 - Semanal";
 			else if (opcao2 == 2) agenda = "2 - Semanal";
@@ -71,8 +65,7 @@ public class Agenda {
 			listaEmpregados.get(index).setTipoAgenda(agenda);
 			
 			System.out.println("\nEscolha o dia da semana:\n1 - Segunda\n2 - Terça\n3 - Quarta\n4 - Quinta\n5 - Sexta");
-			int opcao3 = input.nextInt();
-			input.nextLine();
+			int opcao3 = TratamentoExc.lerInt();
 			
 			listaEmpregados.get(index).setDiaFrequencia(opcao3);
 			

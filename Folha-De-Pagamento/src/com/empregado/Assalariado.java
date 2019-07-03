@@ -1,11 +1,10 @@
 package com.empregado;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
+import com.folhapagamento.TratamentoExc;
 
 public class Assalariado extends Empregado {
-	
-	Scanner input = new Scanner(System.in);
 	
 	// Construtor 
 	public Assalariado(int numeroEmpregado, String nome, String endereco, int metodoPagamento, int isSindicato, int tipo, String tipoAgenda, int diaSemana) {
@@ -19,9 +18,8 @@ public class Assalariado extends Empregado {
 	
 	@Override
 	public void salario() {
-		System.out.print("\nInforme o salário fixo mensal:\nExemplo: 1500 - 3000.56\nR$ ");
-		double salarioTemp = input.nextDouble();
-		input.nextLine();
+		System.out.print("\nInforme o salário fixo mensal:\nExemplo: 1500 - 3000,56\nR$ ");
+		double salarioTemp =TratamentoExc.lerDouble();
 		
 		this.salarioAssalariadoFixo = salarioTemp;
 		
