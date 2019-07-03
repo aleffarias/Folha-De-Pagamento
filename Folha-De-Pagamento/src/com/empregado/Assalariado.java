@@ -11,11 +11,11 @@ public class Assalariado extends Empregado {
 	public Assalariado(int numeroEmpregado, String nome, String endereco, int metodoPagamento, int isSindicato, int tipo, String tipoAgenda, int diaSemana) {
 		super(numeroEmpregado, nome, endereco, metodoPagamento, isSindicato, tipo, tipoAgenda, diaSemana);
 	}
-	
-	
+
 	// Salário
 	private double salarioAssalariadoFixo;
 	private double salarioAssalariadoLiq;
+	
 	
 	@Override
 	public void salario() {
@@ -62,7 +62,7 @@ public class Assalariado extends Empregado {
 			string += "\nTotal de Serviços --------------------------------------------------------- (-) R$ " + getSindicato().getValorTaxaServico();
 		}
 		
-		string += "\n\nSalário Líquido ---------------------------------------------------------------- R$ " + this.salarioAssalariadoLiq;
+		string += "\n\nSalário Líquido --------------------------------------------------------------- R$ " + this.salarioAssalariadoLiq;
 		
 		return string;
 	}

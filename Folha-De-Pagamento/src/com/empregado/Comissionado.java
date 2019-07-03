@@ -83,13 +83,22 @@ public class Comissionado extends Empregado {
 	
 	@Override
 	public String toString() {
-		String string;
+		String string, diaString = null;
 		
 		string = super.toString();
 		
 		string += "Tipo: Comissionado		Salário Bruto: R$ " + this.salarioComissionadoFixo + "	Comissão: " + this.comissao + "%";
 		string += "\n--------------------------------------------------------------------------------------------------------\n";
-		string += "Agenda de Pagamento: " + getTipoAgenda() + "	Dia da semana: " + getDiaFrequencia();
+		
+		if (getDiaFrequencia() == 1) diaString = "Segunda";
+		else if (getDiaFrequencia() == 2) diaString = "Terça";
+		else if (getDiaFrequencia() == 3) diaString = "Quarta";
+		else if (getDiaFrequencia() == 4) diaString = "Quinta";
+		else if (getDiaFrequencia() == 5) diaString = "Sexta";
+		else if (getDiaFrequencia() == 6) diaString = "Sábado";
+		else if (getDiaFrequencia() == 7) diaString = "Domingo";
+		
+		string += "Agenda de Pagamento: " + getTipoAgenda() + "	Dia da semana: " + diaString;
 		string += "\n_________________________________________________________________________________________________________\n";
 		
 		if (getIsSindicato() == 1) {
