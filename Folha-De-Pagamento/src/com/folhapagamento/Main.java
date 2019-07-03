@@ -17,6 +17,10 @@ public class Main {
 			
 			int dia = calendario.getDia();
 			int diaSemana = calendario.getDiaSemana();
+			int semana = calendario.getSemana();
+			int mes = calendario.getMes();
+			int ano = calendario.getAno();
+			int ultimo = calendario.ultimoDia(mes);
 			
 			menu();
 			
@@ -49,9 +53,12 @@ public class Main {
 				break;
 			
 			case 7:
-				funcionalidades.rodarFolha(dia, diaSemana);
+				funcionalidades.rodarFolha(dia, diaSemana, semana, ultimo);
 				calendario.avancarDia();
+				
+				System.out.println("\nData: " + dia + "/ " + mes + " / " + ano + " -  Folha de pagamento executada com sucesso!\n");
 				break;
+				
 			case 8:
 				
 				break;
@@ -59,6 +66,11 @@ public class Main {
 			case 9:
 				funcionalidades.agendaPagamento();
 				break;
+			
+			case 10:
+				funcionalidades.novaAgenda();
+				break;
+				
 			case 0:
 				System.exit(0);
 			
